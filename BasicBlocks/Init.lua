@@ -10,14 +10,14 @@
 
 block = {} --Add model support and then add cross panel model. (if you add block.model it will use the model texture information (it's in the model file))
 block.name = "Tall Grass ADD MODEL"
-block.id = "core:tall_grass"
+block.id = "core.tall_grass"
 block.textures = {"assets/textures/grass.png"} -- Adding a texture here would overwrite the original model texture info.
 --block.model = {"assets/models/cross_panel.json"}
 voxel.block.register(block)
 
 block = {} --Allow to be rotated on place!
 block.name = "Oak Log"
-block.id = "core:oak_log"
+block.id = "core.oak_log"
 block.textures = {"assets/textures/oak_log.png", "assets/textures/oak_log.png",
 "assets/textures/oak_log.png", "assets/textures/oak_log.png",
 "assets/textures/oak_log_top.png",  "assets/textures/oak_log_top.png"}
@@ -25,32 +25,32 @@ voxel.block.register(block)
 
 block = {}
 block.name = "Full Oak Log"
-block.id = "core:oak_log_full"
+block.id = "core.oak_log_full"
 block.textures = {"assets/textures/oak_log.png"}
 voxel.block.register(block)
 
 block = {}
 block.name = "Oak Planks"
-block.id = "core:oak_planks"
+block.id = "core.oak_planks"
 block.textures = {"assets/textures/oak_planks.png"}
 voxel.block.register(block)
 
 block = {}
 block.name = "Oak Wood Stair ADD MODEL" --add face on place.
-block.id = "core:oak_wood_stair"
+block.id = "core.oak_wood_stair"
 block.textures = {"assets/textures/oak_planks.png"} 
 --block.model = {"assets/models/stair.json"}
 voxel.block.register(block)
 
 block = {}
 block.name = "Oak Leaves" --fix transparency issues. And disable block face culling for this block (It should not cull itself or any other blocks)
-block.id = "core:oak_leaves"
+block.id = "core.oak_leaves"
 block.textures = {"assets/textures/oak_leaves.png"}
 voxel.block.register(block)
 
 block = {} --Add craft UI on right click.
 block.name = "Workbench"
-block.id = "core:workbench"
+block.id = "core.workbench"
 block.textures = {"assets/textures/workbench_side.png", "assets/textures/workbench_side.png",
 "assets/textures/workbench_side.png", "assets/textures/workbench_side.png",
 "assets/textures/workbench_top.png",  "assets/textures/oak_planks.png"}
@@ -58,7 +58,7 @@ voxel.block.register(block)
 
 block = {} --Add furnace UI on right click. Face on place.
 block.name = "Furnace"
-block.id = "core:furnace"
+block.id = "core.furnace"
 block.textures = {"assets/textures/furnace_front_off.png", "assets/textures/furnace_side.png",
 "assets/textures/furnace_side.png", "assets/textures/furnace_side.png",
 "assets/textures/furnace_top.png",  "assets/textures/furnace_top.png"}
@@ -66,18 +66,18 @@ voxel.block.register(block)
 
 block = {}
 block.name = "Stone"
-block.id = "core:stone"
+block.id = "core.stone"
 block.textures = {"assets/textures/stone.png"}
 voxel.block.register(block)
 
 block = {}
 block.name = "Bricks"
-block.id = "core:bricks"
+block.id = "core.bricks"
 block.textures = {"assets/textures/bricks.png"}
 voxel.block.register(block)
 
 block = {} --make sand fall if there are no blocks under sand.
 block.name = "Sand"
-block.id = "core:sand"
+block.id = "core.sand"
 block.textures = {"assets/textures/sand.png"}
 voxel.block.register(block)
