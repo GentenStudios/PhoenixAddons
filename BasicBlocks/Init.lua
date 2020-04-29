@@ -81,3 +81,10 @@ block.name = "Sand"
 block.id = "core.sand"
 block.textures = {"assets/textures/sand.png"}
 voxel.block.register(block)
+
+block = {}
+block.name = "Bioluminescent Stone"
+block.id = "core.glowstone"
+-- block.light = true {power 10} (add shadows and blocks that make light)
+block.textures = {"assets/textures/glowstone.png"}
+voxel.block.register(block)
