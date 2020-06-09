@@ -8,6 +8,9 @@
 --THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
+local soilAudioRef = audio.loadMP3("core.soil", "Modules/BasicBlocks/assets/audio/PlaceAndRemove/soil.mp3");
+local sandAudioRef = audio.loadMP3("core.soil", "Modules/BasicBlocks/assets/audio/PlaceAndRemove/sand.mp3");
+
 block = {} --Add model support and then add cross panel model. (if you add block.model it will use the model texture information (it's in the model file))
 block.name = "Tall Grass ADD MODEL"
 block.id = "core.tall_grass"
@@ -80,6 +83,24 @@ block = {} --make sand fall if there are no blocks under sand.
 block.name = "Sand"
 block.id = "core.sand"
 block.textures = {"assets/textures/sand.png"}
+block.onPlace = function(x, y, z)
+                    source = {}
+                    source.id = sandAudioRef
+                    source.position = {}
+                    source.position.x = x
+                    source.position.y = y
+                    source.position.z = z
+                    audio.play(source)
+                end
+block.onBreak = function(x, y, z)
+                    source = {}
+                    source.id = sandAudioRef
+                    source.position = {}
+                    source.position.x = x
+                    source.position.y = y
+                    source.position.z = z
+                    audio.play(source)
+                end
 voxel.block.register(block)
 
 block = {}
