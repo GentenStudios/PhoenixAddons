@@ -7,43 +7,18 @@
 --
 --THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-local sandAudioRef = audio.loadMP3("core.soil", "Modules/BasicBlocks/assets/audio/PlaceAndRemove/sand.mp3");
-local stoneAudioRef = audio.loadMP3("core.stone", "Modules/BasicBlocks/assets/audio/PlaceAndRemove/stone.mp3");
-local woodAudioRef = audio.loadMP3("core.wood", "Modules/BasicBlocks/assets/audio/PlaceAndRemove/wood.mp3");
-local plantAudioRef = audio.loadMP3("core.plant", "Modules/BasicBlocks/assets/audio/PlaceAndRemove/plant.mp3");
+local sandAudioRef = audio.loadMP3("core.soil", "assets/audio/PlaceAndRemove/sand.mp3");
+local stoneAudioRef = audio.loadMP3("core.stone", "assets/audio/PlaceAndRemove/stone.mp3");
+local woodAudioRef = audio.loadMP3("core.wood", "assets/audio/PlaceAndRemove/wood.mp3");
+local plantAudioRef = audio.loadMP3("core.plant", "assets/audio/PlaceAndRemove/plant.mp3");
 
-block = {} --Add model support and then add cross panel model. (if you add block.model it will use the model texture information (it's in the model file))
-block.name = "Tall Grass ADD MODEL"
-block.id = "core.tall_grass"
-block.textures = {"assets/textures/grass.png"} -- Adding a texture here would overwrite the original model texture info.
---block.model = {"assets/models/cross_panel.json"}
-block.onPlace = function(x, y, z)
-                    source = {}
-                    source.id = plantAudioRef
-                    source.position = {}
-                    source.position.x = x
-                    source.position.y = y
-                    source.position.z = z
-                    audio.play(source)
-                end
-block.onBreak = function(x, y, z)
-                    source = {}
-                    source.id = plantAudioRef
-                    source.position = {}
-                    source.position.x = x
-                    source.position.y = y
-                    source.position.z = z
-                    audio.play(source)
-                end
-voxel.block.register(block)
-
-block = {} --Allow to be rotated on place!
-block.name = "Oak Log"
-block.id = "core.oak_log"
-block.textures = {"assets/textures/oak_log.png", "assets/textures/oak_log.png",
+oaklog = {} --Allow to be rotated on place!
+oaklog.name = "Oak Log"
+oaklog.id = "core.oak_log"
+oaklog.textures = {"assets/textures/oak_log.png", "assets/textures/oak_log.png",
 "assets/textures/oak_log.png", "assets/textures/oak_log.png",
 "assets/textures/oak_log_top.png",  "assets/textures/oak_log_top.png"}
-block.onPlace = function(x, y, z)
+oaklog.onPlace = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -52,7 +27,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+oaklog.onBreak = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -61,13 +36,13 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(oaklog)
 
-block = {}
-block.name = "Full Oak Log"
-block.id = "core.oak_log_full"
-block.textures = {"assets/textures/oak_log.png"}
-block.onPlace = function(x, y, z)
+oaklogfull = {}
+oaklogfull.name = "Full Oak Log"
+oaklogfull.id = "core.oak_log_full"
+oaklogfull.textures = {"assets/textures/oak_log.png"}
+oaklogfull.onPlace = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -76,7 +51,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+oaklogfull.onBreak = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -85,13 +60,13 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(oaklogfull)
 
-block = {}
-block.name = "Oak Planks"
-block.id = "core.oak_planks"
-block.textures = {"assets/textures/oak_planks.png"}
-block.onPlace = function(x, y, z)
+oakplanks = {}
+oakplanks.name = "Oak Planks"
+oakplanks.id = "core.oak_planks"
+oakplanks.textures = {"assets/textures/oak_planks.png"}
+oakplanks.onPlace = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -100,7 +75,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+oakplanks.onBreak = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -109,14 +84,14 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(oakplanks)
 
-block = {}
-block.name = "Oak Wood Stair ADD MODEL" --add face on place.
-block.id = "core.oak_wood_stair"
-block.textures = {"assets/textures/oak_planks.png"} 
---block.model = {"assets/models/stair.json"}
-block.onPlace = function(x, y, z)
+oakplankStair = {} --add face on place
+oakplankStair.name = "Oak Plank Stair"
+oakplankStair.id = "core.oak_plank_stair"
+oakplankStair.model = "Stair"
+oakplankStair.textures= {"assets/textures/oak_planks.png"}
+oakplankStair.onPlace = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -125,7 +100,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+oakplankStair.onBreak = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -134,13 +109,13 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(oakplankStair)
 
-block = {}
-block.name = "Oak Leaves" --fix transparency issues. And disable block face culling for this block (It should not cull itself or any other blocks)
-block.id = "core.oak_leaves"
-block.textures = {"assets/textures/oak_leaves.png"}
-block.onPlace = function(x, y, z)
+oakleaves = {}
+oakleaves.name = "Oak Leaves" --fix transparency issues. And disable block face culling for this block (It should not cull itself or any other blocks add Xpanblock)
+oakleaves.id = "core.oak_leaves"
+oakleaves.textures = {"assets/textures/oak_leaves.png"}
+oakleaves.onPlace = function(x, y, z)
                     source = {}
                     source.id = plantAudioRef
                     source.position = {}
@@ -149,7 +124,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+oakleaves.onBreak = function(x, y, z)
                     source = {}
                     source.id = plantAudioRef
                     source.position = {}
@@ -158,15 +133,15 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(oakleaves)
 
-block = {} --Add craft UI on right click.
-block.name = "Workbench"
-block.id = "core.workbench"
-block.textures = {"assets/textures/workbench_side.png", "assets/textures/workbench_side.png",
+workbench = {} --Add craft UI on right click.
+workbench.name = "Workbench"
+workbench.id = "core.workbench"
+workbench.textures = {"assets/textures/workbench_side.png", "assets/textures/workbench_side.png",
 "assets/textures/workbench_side.png", "assets/textures/workbench_side.png",
 "assets/textures/workbench_top.png",  "assets/textures/oak_planks.png"}
-block.onPlace = function(x, y, z)
+workbench.onPlace = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -175,7 +150,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+workbench.onBreak = function(x, y, z)
                     source = {}
                     source.id = woodAudioRef
                     source.position = {}
@@ -184,15 +159,15 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(workbench)
 
-block = {} --Add furnace UI on right click. Face on place.
-block.name = "Furnace"
-block.id = "core.furnace"
-block.textures = {"assets/textures/furnace_front_off.png", "assets/textures/furnace_side.png",
+furnace = {} --Add furnace UI on right click. Face on place.
+furnace.name = "Furnace"
+furnace.id = "core.furnace"
+furnace.textures = {"assets/textures/furnace_front_off.png", "assets/textures/furnace_side.png",
 "assets/textures/furnace_side.png", "assets/textures/furnace_side.png",
 "assets/textures/furnace_top.png",  "assets/textures/furnace_top.png"}
-block.onPlace = function(x, y, z)
+furnace.onPlace = function(x, y, z)
                     source = {}
                     source.id = stoneAudioRef
                     source.position = {}
@@ -201,7 +176,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+furnace.onBreak = function(x, y, z)
                     source = {}
                     source.id = stoneAudioRef
                     source.position = {}
@@ -210,13 +185,13 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(furnace)
 
-block = {}
-block.name = "Stone"
-block.id = "core.stone"
-block.textures = {"assets/textures/stone.png"}
-block.onPlace = function(x, y, z)
+stone = {}
+stone.name = "Stone"
+stone.id = "core.stone"
+stone.textures = {"assets/textures/stone.png"}
+stone.onPlace = function(x, y, z)
                     source = {}
                     source.id = stoneAudioRef
                     source.position = {}
@@ -225,7 +200,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+stone.onBreak = function(x, y, z)
                     source = {}
                     source.id = stoneAudioRef
                     source.position = {}
@@ -234,13 +209,13 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(stone)
 
-block = {}
-block.name = "Bricks"
-block.id = "core.bricks"
-block.textures = {"assets/textures/bricks.png"}
-block.onPlace = function(x, y, z)
+bricks = {}
+bricks.name = "Bricks"
+bricks.id = "core.bricks"
+bricks.textures = {"assets/textures/bricks.png"}
+bricks.onPlace = function(x, y, z)
                     source = {}
                     source.id = stoneAudioRef
                     source.position = {}
@@ -249,7 +224,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+bricks.onBreak = function(x, y, z)
                     source = {}
                     source.id = stoneAudioRef
                     source.position = {}
@@ -258,13 +233,13 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(bricks)
 
-block = {} --make sand fall if there are no blocks under sand.
-block.name = "Sand"
-block.id = "core.sand"
-block.textures = {"assets/textures/sand.png"}
-block.onPlace = function(x, y, z)
+sand = {} --make sand fall if there are no blocks under sand.
+sand.name = "Sand"
+sand.id = "core.sand"
+sand.textures = {"assets/textures/sand.png"}
+sand.onPlace = function(x, y, z)
                     source = {}
                     source.id = sandAudioRef
                     source.position = {}
@@ -273,7 +248,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+sand.onBreak = function(x, y, z)
                     source = {}
                     source.id = sandAudioRef
                     source.position = {}
@@ -282,14 +257,14 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(sand)
 
-block = {}
-block.name = "Bioluminescent Stone"
-block.id = "core.glowstone"
+glowstone = {}
+glowstone.name = "Bioluminescent Stone"
+glowstone.id = "core.glowstone"
 -- block.light = true {power 10} (add shadows and blocks that make light)
-block.textures = {"assets/textures/glowstone.png"}
-block.onPlace = function(x, y, z)
+glowstone.textures = {"assets/textures/glowstone.png"}
+glowstone.onPlace = function(x, y, z)
                     source = {}
                     source.id = stoneAudioRef
                     source.position = {}
@@ -298,7 +273,7 @@ block.onPlace = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-block.onBreak = function(x, y, z)
+glowstone.onBreak = function(x, y, z)
                     source = {}
                     source.id = stoneAudioRef
                     source.position = {}
@@ -307,4 +282,29 @@ block.onBreak = function(x, y, z)
                     source.position.z = z
                     audio.play(source)
                 end
-voxel.block.register(block)
+voxel.block.register(glowstone)
+
+grass = {}
+grass.name = "Tall Grass"
+grass.id = "core.oak_plank_stair"
+grass.model = "XPanel"
+grass.textures= {"assets/textures/grass.png"}
+grass.onPlace = function(x, y, z)
+                    source = {}
+                    source.id = plantAudioRef
+                    source.position = {}
+                    source.position.x = x
+                    source.position.y = y
+                    source.position.z = z
+                    audio.play(source)
+                end
+grass.onBreak = function(x, y, z)
+                    source = {}
+                    source.id = plantAudioRef
+                    source.position = {}
+                    source.position.x = x
+                    source.position.y = y
+                    source.position.z = z
+                    audio.play(source)
+                end
+voxel.block.register(grass)
