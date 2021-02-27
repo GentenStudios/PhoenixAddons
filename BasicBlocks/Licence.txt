@@ -9,8 +9,8 @@ furnace_side.png
 furnace_top.png
 glass.png
 glass_pane_top.png
-glowstone.png
-grass.png
+luminous_stone.png
+grass_tall.png
 grass_block_side.png
 grass_block_top.png
 hay_block_side.png
@@ -22,6 +22,7 @@ oak_log.png
 oak_log_top.png
 oak_planks.png
 rose.png
+cyan_flower.png
 sand.png
 stone.png
 workbench_side.png
